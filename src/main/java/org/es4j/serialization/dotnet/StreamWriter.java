@@ -2,7 +2,7 @@ package org.es4j.serialization.dotnet;
 
 import java.io.Closeable;
 import java.io.IOException;
-import org.es4j.dotnet.Stream;
+import org.es4j.dotnet.streams.Stream;
 
 
 public class StreamWriter implements Closeable {

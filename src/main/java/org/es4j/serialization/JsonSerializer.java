@@ -3,7 +3,7 @@ package org.es4j.serialization;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import org.es4j.dotnet.Stream;
+import org.es4j.dotnet.streams.Stream;
 import org.es4j.serialization.api.ISerialize;
 import org.es4j.serialization.dotnet.*;
 import org.es4j.serialization.json.Messages;
@@ -33,11 +33,11 @@ public class JsonSerializer implements ISerialize {
                                                                               DefaultValueHandling.Ignore,
                                                                               NullValueHandling.Ignore);
 
-    private /*final*/ List<Class> knownTypes; // = Arrays.asList( //List<EventMessageEventMessage>.class,
+    private /*final*/ List<Class<?>> knownTypes; // = Arrays.asList( //List<EventMessageEventMessage>.class,
 			                                      //Map<String, Object>.class)
                                               //              );
 
-    public JsonSerializer(List<Class> knownTypes) {
+    public JsonSerializer(List<Class<?>> knownTypes) {
         this.knownTypes = Arrays.asList( //List<EventMessageEventMessage>.class,
 			            //Map<String, Object>.class)
                                    );
@@ -46,7 +46,7 @@ public class JsonSerializer implements ISerialize {
         }
         this.knownTypes = (knownTypes!=null)? knownTypes : this.knownTypes;
 
-        for (Class type : this.knownTypes) {
+        for (Class<?> type : this.knownTypes) {
             logger.debug(Messages.RegisteringKnownType(), type);
         }
     }

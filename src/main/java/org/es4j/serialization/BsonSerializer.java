@@ -3,7 +3,7 @@ package org.es4j.serialization;
 //using System;
 
 import java.util.List;
-import org.es4j.dotnet.Stream;
+import org.es4j.dotnet.streams.Stream;
 import org.es4j.util.GenericType;
 import org.es4j.util.logging.ILog;
 import org.es4j.util.logging.LogFactory;
@@ -16,7 +16,7 @@ public class BsonSerializer extends JsonSerializer {
 
     private static final ILog logger = LogFactory.buildLogger(BsonSerializer.class);
 
-    public BsonSerializer(/*params*/ List<Class> knownTypes) {
+    public BsonSerializer(/*params*/ List<Class<?>> knownTypes) {
         super(knownTypes);
     }
 
@@ -39,7 +39,7 @@ public class BsonSerializer extends JsonSerializer {
         //return this.deserialize/*<T>*/(reader);
     }
 
-    private static boolean isArray(Class type) {
+    private static boolean isArray(Class<?> type) {
         throw new UnsupportedOperationException("Not yet implemented");
         //boolean array = typeof(Iterable).isAssignableFrom(type) && !typeof(Map).isAssignableFrom(type);
         //logger.verbose(Messages.TypeIsArray(), type, array);
